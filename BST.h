@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------
-// This header file defines the data structure BST to store Books
+// This header file defines the data structure BST to store Book type
 //----------------------------------------------------------------------------
 #ifndef BST_H
 #define BST_H

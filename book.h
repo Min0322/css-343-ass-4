@@ -8,23 +8,15 @@
 using namespace std;
 class Book {
 public:
-  // read input file
-  virtual void setData(ifstream &inputfile);
-  // setters
-  // set the book type: children, fiction, or periodicals
-  void setBookType(char type);
-  // set the book title
-  void setTitle(string titleNew);
-  // set the year published
-  void setYear(int yearNew);
-  // set the month published (only periodicals)
-  void setMonth(int monthNew);
-  // set the number of copies in stock
-  void setCopies(int numOfCopies);
+
+  Book();
+  Book(char bookType, string author, string title, int year);
+  Book(char bookType, string author, string title, int month, int year);
+  virtual ~Book();
 
   // getters
   // get the book tyope
-  char getType() const;
+  char getBookType() const;
   // get the title
   string getTitle() const;
   // get the year
@@ -35,11 +27,12 @@ public:
   int getCopies() const;
   // operator overloading
   // assignment operator
-  virtual Book &operator=(Book &rhs);
+  virtual Book& operator=(Book &rhs);
   // comparison operator
-  virtual bool operator==(const Book &rhs) = 0;
-  virtual bool operator>(const Book &rhs) = 0;
-  virtual bool operator<(const Book &rhs) = 0;
+  virtual bool operator==(const Book &rhs) const = 0;
+  virtual bool operator!=(const Book &rhs) const = 0;
+  virtual bool operator>(const Book &rhs) const = 0;
+  virtual bool operator<(const Book &rhs) const = 0;
 
 private:
   // book type: presents if it is Children, Fiction or Periodicals

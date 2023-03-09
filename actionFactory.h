@@ -5,9 +5,18 @@
 #ifndef ACTIONFACTORY_H
 #define ACTIONFACTORY_H
 #include "action.h"
+#include "checkout.h"
+#include "display.h"
+#include "history.h"
+#include "book.h"
+#include "return.h"
+using namespace std;
+
 class ActionFactory {
 public:
+  ActionFactory();
+  ~ActionFactory();
   // generate different kinds of actions
-  bool createAction(char a, Action *&act, ifstream &infile);
+  Action* createAction(char type, int id, Book*& book);
 };
 #endif

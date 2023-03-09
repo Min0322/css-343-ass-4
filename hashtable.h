@@ -3,15 +3,25 @@
 //----------------------------------------------------------------------------
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
+
+#include <map>
+#include <iostream>
+#include <string>
+#include <algorithm>
 #include "patron.h"
 // assume table has 999 nodes
 const int MAX_SIZE = 999;
+
+template <typename K, typename V>
 class HashTable {
 public:
   // constructor
   HashTable();
+  HashTable(const K key, const V value);
   // destructor
   ~HashTable();
+
+  
   // insert a patron to table
   void insert(Patron *p);
   // search for a patron from table

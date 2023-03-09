@@ -4,8 +4,15 @@
 #ifndef BOOKFACTORY_H
 #define BOOKFACTORY_H
 #include "book.h"
+#include "childrenBook.h"
+#include "fictionBook.h"
+#include "periodicals.h"
 class BookFactory {
+
+    BookFactory();
+    ~BookFactory();
     //create a book
-    bool createBook(ifstream& infile, char genre, Book*& book);
+    Book* createBook(char type, string author, string title, int year);
+    Book* createBook(char type, string author, string title, int month, int year);
 };
 #endif
