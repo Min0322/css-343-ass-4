@@ -29,10 +29,10 @@ public:
   // assignment operator
   virtual Book& operator=(Book &rhs);
   // comparison operator
-  virtual bool operator==(const Book &rhs) const = 0;
-  virtual bool operator!=(const Book &rhs) const = 0;
-  virtual bool operator>(const Book &rhs) const = 0;
-  virtual bool operator<(const Book &rhs) const = 0;
+  virtual bool operator==(const Book &rhs) const;
+  virtual bool operator!=(const Book &rhs) const;
+  virtual bool operator>(const Book &rhs) const;
+  virtual bool operator<(const Book &rhs) const;
 
 private:
   // book type: presents if it is Children, Fiction or Periodicals
