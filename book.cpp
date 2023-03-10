@@ -39,6 +39,11 @@ string Book :: getTitle() const
 {
     return title;
 }
+  // set the book author
+string Book :: getAuthor() const
+{
+    return author;
+}
   // set the year published
 int Book :: getYear() const
 {   

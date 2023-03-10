@@ -19,6 +19,9 @@ public:
   char getBookType() const;
   // get the title
   string getTitle() const;
+  // get the author
+  string getAuthor() const;
+
   // get the year
   int getYear() const;
   // get the month (periodicals)
