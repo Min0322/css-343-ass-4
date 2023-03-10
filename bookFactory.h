@@ -12,7 +12,6 @@ class BookFactory {
     BookFactory();
     ~BookFactory();
     //create a book
-    Book* createBook(char type, string author, string title, int year);
-    Book* createBook(char type, string author, string title, int month, int year);
+    Book* createBook(char bookType, string author, string title, int month, int year, int stock);
 };
 #endif

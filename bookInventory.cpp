@@ -40,3 +40,17 @@ Book* BookInventory::getBook(Book* b)
     }
     return foundPtr;
 }
+
+bool BookInventory::bookCheck (Book* bookPtr)
+{
+    Book* foundPtr = getBook (bookPtr);
+    if (foundPtr!= NULL)
+        return true;
+    else
+        return false;
+}
+
+void BookInventory::printInventory()
+{
+    
+}
