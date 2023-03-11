@@ -4,21 +4,21 @@
 //----------------------------------------------------------------------------
 #ifndef RETURN_H
 #define RETURN_H
+#include "action.h"
 #include "book.h"
-#include "bookFactory.h"
-class Return : public Action {
+#include "bookInventory.h"
+#include "patronInventory.h"
+
+class Return : public Action 
+{
 public:
-  // action constructor for Checkout
-  void Action(BST books[], HashTable &patrons);
-  // set the data from action
-  bool setData(ifstream &infile, char aType);
-  // get the string representation of the action
-  string getString() const;
+  // action constructor for Return
+  Return(int id, Book* book);
+  virtual ~Return();
+  virtual bool action(BookInventory& books, PatronInventory& patrons);
 
 private:
-  // book type: hardcopy or ..
-  string mediaType;
-  // book factory
-  BookFactory bFactory;
+  Book* book;
+  int id;
 };
 #endif

@@ -18,6 +18,7 @@ public:
   bool insert(Book *ins);
   bool remove(Book *rem);
   bool getBook(const Book &findB, Book *&returnB) const;
+  
 
 private:
   // BST Node: left ptr, right ptr, obj data book

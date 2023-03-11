@@ -17,6 +17,6 @@ public:
   ActionFactory();
   ~ActionFactory();
   // generate different kinds of actions
-  Action* createAction(char type, int id, Book*& book);
+  Action* create(char type, int id, Book*& book);
 };
 #endif

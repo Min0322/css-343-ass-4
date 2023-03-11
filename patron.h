@@ -28,8 +28,6 @@ public:
   string getFirstName() const;
   string getLastName() const;
   void addHistory(string a);
-  void addCheckedOutBook(Book* book);
-  void removeCheckedOutBook(Book* book)
   void displayHistory();
 
 
