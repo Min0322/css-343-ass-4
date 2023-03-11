@@ -4,21 +4,24 @@
 //----------------------------------------------------------------------------
 #ifndef CHECKOUT_H
 #define CHECKOUT_H
+#include "action.h"
 #include "book.h"
 #include "bookFactory.h"
-class CheckOut : public Action {
+#include "bookInventory.h"
+#include "patronInventory.h"
+
+using namespace std;
+
+class CheckOut : public Action 
+{
 public:
   // action constructor for Checkout
-  void Action(BST books[], HashTable &patrons);
-  // set the data from action
-  bool setData(ifstream &infile, char aType);
-  // get the string representation of the action
-  string getString() const;
+  CheckOut(int id, Book* book);
+  virtual ~CheckOut();
+  virtual bool action(BookInventory& books, PatronInventory& patrons);
 
 private:
-  // book type: hardcopy or ..
-  string mediaType;
-  // book factory
-  BookFactory bFactory;
+  Book* book;
+  int id;
 };
 #endif

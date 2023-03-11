@@ -1,43 +1,93 @@
-//----------------------------------------------------------------------------
-// This header file defines hashtable data structure to store Patrons obj
-//----------------------------------------------------------------------------
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 
 #include <map>
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include <vector>
 #include "patron.h"
-// assume table has 999 nodes
-const int MAX_SIZE = 999;
 
 template <typename K, typename V>
 class HashTable {
 public:
-  // constructor
-  HashTable();
-  HashTable(const K key, const V value);
-  // destructor
-  ~HashTable();
+    HashTable() : numOfKeys(0) {}
 
-  
-  // insert a patron to table
-  void insert(Patron *p);
-  // search for a patron from table
-  bool getPatron(int id, Patron *findP, Patron *&returnP);
-  // build table from input file
-  void buildHashTable(ifstream &infile);
+    HashTable(const K& key, const V& value) : numOfKeys(1) {
+        keysMap.emplace(key, value);
+        keys.emplace_back(key);
+    }
+
+    bool isEmpty() const {
+        return numOfKeys == 0;
+    }
+
+    int getNumOfEntries() const {
+        return numOfKeys;
+    }
+
+    bool add(const K& key, const V& value) {
+        if (keysMap.find(key) == keysMap.end()) {
+            numOfKeys++;
+            keysMap.emplace(key, value);
+            keys.emplace_back(key);
+            return true;
+        }
+        return false;
+    }
+
+    bool remove(const K& key) {
+        auto iter = keysMap.find(key);
+        if (iter != keysMap.end()) {
+            keysMap.erase(iter);
+            removeKeyFromVector(key);
+            numOfKeys--;
+            return true;
+        }
+        return false;
+    }
+
+    void clear() {
+        keysMap.clear();
+        keys.clear();
+        numOfKeys = 0;
+    }
+
+    const V& getVal(const K& key) const {
+        return keysMap.at(key);
+    }
+
+    void setVal(const K& key, const V& value) {
+        auto iter = keysMap.find(key);
+        if (iter != keysMap.end()) {
+            iter->second = value;
+        }
+    }
+
+    bool contains(const K& key) const {
+        return keysMap.find(key) != keysMap.end();
+    }
+
+    const std::vector<K>& getKeys() const {
+        return keys;
+    }
+
+    const std::vector<V>& getVals() const {
+        return values;
+    }
+
+    void printKeys() const {
+        for (const auto& key : keys) {
+            std::cout << key << std::endl;
+        }
+    }
 
 private:
-  // struct for hashnode
-  // hold patron and next ptr
-  struct HashNode {
-    HashNode *next;
-    Patron *p;
-  };
-  HashNode *table[MAX_SIZE];
-  // hash function
-  int hash(int patronID);
+    std::map<K, V> keysMap;
+    std::vector<K> keys;
+    std::vector<V> values;
+    int numOfKeys;
+
+    void removeKeyFromVector(const K& key) {
+        keys.erase(std::remove(keys.begin(), keys.end(), key), keys.end());
+    }
 };
-#endif
+
+#endif // HASHTABLE_H

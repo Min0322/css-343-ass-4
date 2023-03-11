@@ -4,18 +4,20 @@
 //----------------------------------------------------------------------------
 #ifndef FICTIONBOOK_H
 #define FICTIONBOOK_H
+
 #include "book.h"
+#include <string>
+
 class FictionBook : public Book {
 public:
-  // toString function: prints out the Book type
-  void toString(ostream &stream) const;
   // constructor: parameter is book genre
-  FictionBook(char genre);
-  // set data from input file
-  void setData(ifstream &infile);
+  FictionBook(char bookType, char format, string author, 
+  string title, int year, int copies);
+
   // operator overloading
-  bool operator==(const Book &rhs);
-  bool operator>(const Book &rhs);
-  bool operator<(const Book &rhs);
+  bool operator==(const Book &rhs) const;
+  bool operator!=(const Book &rhs) const;
+  bool operator>(const Book &rhs) const;
+  bool operator<(const Book &rhs) const;
 };
 #endif

@@ -1,26 +1,26 @@
-#include "action.h"
+#include "display.h"
 
 // --------------------------------------------------------------------------------------
 // default constructor
-// initialize action type to "X"
 // --------------------------------------------------------------------------------------
-Action::Action()
-{
-    actionType = 'X';
-}
-
-// --------------------------------------------------------------------------------------
-// destructor
-// --------------------------------------------------------------------------------------
-Action::~Action()
+Display::Display()
 {
     
 }
 
 // --------------------------------------------------------------------------------------
-// default execute
+// destructor
 // --------------------------------------------------------------------------------------
-bool Action::execute(BookInventory& book, PatronInventory& patron)
+Display::~Display()
 {
+    
+}
+
+// --------------------------------------------------------------------------------------
+// returns true if inventory print was performed successfully
+// --------------------------------------------------------------------------------------
+bool Display::action(BookInventory& books, PatronInventory& patrons)
+{
+    books.displayAll();
     return true;
 }

@@ -10,20 +10,15 @@
 class ChildrenBook : public Book {
 public:
   // constructor: parameter is book genre
-  ChildrenBook(const string& author, const string& title,
-                const int year, const int month);
-  // toString function to print out the book type
-  void toString(ostream &stream) const;
-  
-  // set the data from input file
-  void setData(ifstream &infile);
+  ChildrenBook(char bookType, char format, string author, string title,
+              int year, int copies);
   // operator overloading
-  bool operator==(const Book &rhs);
-  bool operator>(const Book &rhs);
-  bool operator<(const Book &rhs);
+  bool operator==(const Book &rhs) const;
+  bool operator!=(const Book &rhs) const;
+  bool operator>(const Book &rhs) const;
+  bool operator<(const Book &rhs) const;
 
 
-  private:
-    const char CHILDRENBOOK = 'C';
+
 };
 #endif

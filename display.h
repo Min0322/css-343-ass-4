@@ -6,6 +6,8 @@
 #define CHECKOUT_H
 #include "book.h"
 #include "bookFactory.h"
+#include "action.h"
+#include "patronInventory.h"
 class Display : public Action {
 public:
   // action constructor for Checkout

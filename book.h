@@ -5,13 +5,14 @@
 #define BOOK_H
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 class Book {
 public:
 
   Book();
-  Book(char bookType, string author, string title, int year);
-  Book(char bookType, string author, string title, int month, int year);
+  Book(char bookType, char format, string author, string title, int year, int copies);
+  Book(char bookType, char format, string title, int month, int year, int copies);
   virtual ~Book();
 
   // getters
@@ -37,9 +38,17 @@ public:
   virtual bool operator>(const Book &rhs) const;
   virtual bool operator<(const Book &rhs) const;
 
+  virtual void display() const;                                         
+    
+  // Mutators
+  bool addToCopies(int);                              // add to stock
+  virtual bool subtractFromCopies(int);               // subtract from stock
+                         
+
 private:
   // book type: presents if it is Children, Fiction or Periodicals
   char bookType;
+  char format;
   // book author name
   string author;
   // book title

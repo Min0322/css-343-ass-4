@@ -14,7 +14,7 @@ class Action {
 public:
     Action();
     virtual ~Action();
-    virtual bool execute(bookInventory& book, patronInventory& patron);
+    virtual bool execute(BookInventory& book, PatronInventory& patron);
 
 private:
     char actionType;

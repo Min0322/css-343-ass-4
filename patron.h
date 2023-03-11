@@ -23,21 +23,15 @@ public:
   void setFirstName(string fnameNew);
   void setLastName(string lnameNew);
   void setHistory(vector<string> history);
-  // getters
+
   int getId() const;
   string getFirstName() const;
   string getLastName() const;
-  // actions that patron can perform
   void addHistory(string a);
-  // //  borrow (or checkout) book
-  // void borrowBook(Book *&b);
-  // display the history of books
+  void addCheckedOutBook(Book* book);
+  void removeCheckedOutBook(Book* book)
   void displayHistory();
-  // void read (string a);
-  // // display the history of actions
-  // void actionsPerformed(string actions);
-  // // returning a book
-  // void returnBook(Book *&b, Book *&returnB);
+
 
 private:
   // patron id

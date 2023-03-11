@@ -7,16 +7,16 @@
 #include "book.h"
 class Periodicals : public Book {
 public:
-  // toString: prints out the book
-  void toString(ostream &stream) const;
+public:
   // constructor: parameter is book genre
-  Periodicals(char genre);
-  // set data from input
-  void setData(ifstream &infile);
+  Periodicals(char bookType, char format, 
+  string title,int month , int year, int copies);
+
   // operator overloading
-  bool operator==(const Book &rhs);
-  bool operator>(const Book &rhs);
-  bool operator<(const Book &rhs);
+  bool operator==(const Book &rhs) const;
+  bool operator!=(const Book &rhs) const;
+  bool operator>(const Book &rhs) const;
+  bool operator<(const Book &rhs) const;
 };
 
 #endif
