@@ -172,15 +172,14 @@ string Library::readStringStream (stringstream& input)
     input >> words;
     
     // read string stream until last character is a comma
-    while(words[words.length() - 1] != ',')
+    while (input.peek() != ',')
     {
         input >> temp;
         words = words + " " + temp;
     }
     
-    // remove the last comma character
-    if (words[words.length() - 1] == ',')
-        words = words.substr(0, words.length() - 1);
+    // remove comma from the end of the words
+    words = words.substr(0, words.length() - 1);
     
     return words;
 }
