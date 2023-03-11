@@ -22,7 +22,7 @@ public:
     void readPatronFile (ifstream&);             // load patrons into patronTable
     void readBookFile (ifstream&);                // load books into bookTree
     void readActionFile (ifstream&);          // read transactions and execute
-    bool performAaction (Action*);        // execute a transaction
+    bool performAction (Action*);        // execute a transaction
     
 private:
     BookInventory bookTree;                      // BST of books

@@ -8,10 +8,10 @@
 #include "fictionBook.h"
 #include "periodicals.h"
 class BookFactory {
-
-    BookFactory();
-    ~BookFactory();
-    //create a book
-    Book* createBook(char bookType, string author, string title, int month, int year);
+    public:
+        BookFactory();
+        ~BookFactory();
+        //create a book
+        Book* createBook(char bookType, string author, string title, int month, int year);
 };
 #endif
