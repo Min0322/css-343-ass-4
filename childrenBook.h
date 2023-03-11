@@ -12,11 +12,12 @@ public:
   // constructor: parameter is book genre
   ChildrenBook(char bookType, char format, string author, string title,
               int year, int copies);
+  ~ChildrenBook();
   // operator overloading
-  bool operator==(const Book &rhs) const;
-  bool operator!=(const Book &rhs) const;
-  bool operator>(const Book &rhs) const;
-  bool operator<(const Book &rhs) const;
+  virtual bool operator==(const Book &rhs) const;
+  virtual bool operator!=(const Book &rhs) const;
+  virtual bool operator>(const Book &rhs) const;
+  virtual bool operator<(const Book &rhs) const;
 
 
 

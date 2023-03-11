@@ -1,4 +1,6 @@
 #include "BST.h"
+#include <stack>
+#include <unordered_set>
 
 BST::BST()
 {
@@ -8,11 +10,6 @@ BST::BST()
 BST::~BST()
 {
     clearHelper(root);
-}
-
-bool BST::getBook (const Book& book1, Book*& found) const
-{
-    return retrieveHelper (book1, found, root);
 }
 
 bool BST::insert (Book* ins)
@@ -49,10 +46,12 @@ void BST::clearHelper(Node* &cur)
         cur = nullptr;
     }
 }
-#include <stack>
-#include <unordered_set>
 
 
+void BST::resetCounted()
+{
+    resetHelper(root);
+}
 
 
 bool BST::retrieveHelper(const Book& book1, Book*& found, Node* cur) const
@@ -153,3 +152,12 @@ bool BST::removeHelper(Node* &cur, Book* rem)
         return removeHelper(cur->right, rem);
 }
 
+void BST::resetHelper(Node* cur)
+{
+    if (cur != NULL)
+    {
+        resetHelper(cur -> left);
+        cur -> b -> setCounted(false);
+        resetHelper(cur -> right);
+    }
+}

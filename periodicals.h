@@ -11,12 +11,12 @@ public:
   // constructor: parameter is book genre
   Periodicals(char bookType, char format, 
   string title,int month , int year, int copies);
-
+  ~Periodicals();
   // operator overloading
-  bool operator==(const Book &rhs) const;
-  bool operator!=(const Book &rhs) const;
-  bool operator>(const Book &rhs) const;
-  bool operator<(const Book &rhs) const;
+  virtual bool operator==(const Book &rhs) const;
+  virtual bool operator!=(const Book &rhs) const;
+  virtual bool operator>(const Book &rhs) const;
+  virtual bool operator<(const Book &rhs) const;
 };
 
 #endif

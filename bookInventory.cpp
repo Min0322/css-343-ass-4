@@ -52,7 +52,35 @@ bool BookInventory::bookCheck (Book* bookPtr)
 
 void BookInventory::displayAll()
 {
-    cout << "HI" << endl;
+    for (int i = 0; i < bookType.size(); i++)
+    {
+        switch (i)
+        {
+            case 0:
+                cout << "Children's Books" << endl;
+                cout << "AVAIL" << setw(1) << "AUTHOR" << setw(20)
+                << "TITLE" << setw(30) << "YEAR" << endl;
+                break;
+
+            case 1:
+                cout << "Fiction Books" << endl;
+                cout << "AVAIL" << setw(1) << "AUTHOR" << setw(20)
+                << "TITLE" << setw(30) << "YEAR" << endl;
+                break;
+
+            case 2:
+                cout << "Periodicals" << endl;
+                cout << "AVAIL" << setw(1) << "TITLE" << setw(50)
+                << "MONTH" << setw(5) << "YEAR" << endl;
+                break;
+
+            default:
+                break;
+        }
+
+        cout << bookType[i];
+        bookType[i].resetCounted();
+    }
 }
 
 

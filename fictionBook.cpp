@@ -7,6 +7,11 @@ FictionBook::FictionBook(char bookType, char format, string author, string title
 {
 }
 
+FictionBook::~FictionBook()
+{
+
+}
+
 bool FictionBook::operator==(const Book &rhs) const
 {
     if (getAuthor() == rhs.getAuthor() && getTitle() == rhs.getTitle())

@@ -7,6 +7,11 @@ Periodicals::Periodicals(char bookType, char format, string title,int month , in
 {
 }
 
+Periodicals::~Periodicals()
+{
+
+}
+
 bool Periodicals::operator==(const Book &rhs) const
 {
     if (getAuthor() == rhs.getAuthor() && getTitle() == rhs.getTitle())

@@ -31,7 +31,7 @@ public:
   int getCopies() const;
   // operator overloading
   // assignment operator
-  virtual Book& operator=(Book &rhs);
+  // virtual Book& operator=(Book &rhs);
   // comparison operator
   virtual bool operator==(const Book &rhs) const;
   virtual bool operator!=(const Book &rhs) const;
@@ -43,7 +43,7 @@ public:
   // Mutators
   bool addToCopies(int);                              // add to stock
   virtual bool subtractFromCopies(int);               // subtract from stock
-                         
+  void setCounted(bool);                       
 
 private:
   // book type: presents if it is Children, Fiction or Periodicals
@@ -59,5 +59,7 @@ private:
   int month;
   // number of copies in stock at the library
   int copies;
+
+  bool counted;
 };
 #endif

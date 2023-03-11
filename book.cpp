@@ -69,18 +69,19 @@ int Book :: getCopies() const
     return copies;
 }
 
-Book& Book :: operator = (Book& rhs)
-{
-    if(this != &rhs)
-    {
-    this->bookType = bookType;
-    this->author = author;
-    this->title = title;
-    this->month = month;
-    this->year = year;
-    }
-    return *this;
-}
+// Book& Book :: operator = (Book& rhs)
+// {
+
+//     if(this != &rhs)
+//     {
+//     this->bookType = bookType;
+//     this->author = author;
+//     this->title = title;
+//     this->month = month;
+//     this->year = year;
+//     }
+//     return *this;
+// }
 
 bool Book :: operator == (const Book &rhs) const
 {
@@ -142,4 +143,7 @@ void Book :: display() const
     
 }          
 
-
+void Book::setCounted(bool checked)
+{
+    counted = checked;
+}

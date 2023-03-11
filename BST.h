@@ -18,6 +18,7 @@ public:
   bool insert(Book *ins);
   bool remove(Book *rem);
   bool getBook(const Book &findB, Book *&returnB) const;
+  void resetCounted(); 
   
 
 private:
@@ -34,5 +35,6 @@ private:
   bool insertHelper (Node *&root, Book* b);
   bool removeHelper (Node *&root, Book* b);
   bool retrieveHelper (const Book&, Book*& , Node*) const;
+  void resetHelper(Node*);
 };
 #endif
